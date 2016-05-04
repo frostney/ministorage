@@ -1,0 +1,65 @@
+{
+  "name": "ministorage",
+  "version": "1.0.0",
+  "description": "localStorage-/sessionStorage-compatible in-memory store",
+  "main": "dist/ministorage.js",
+  "jsnext:main": "dist/ministorage.es2015.js",
+  "scripts": {
+    "prebuild": "rimraf dist",
+    "build": "rollup-babel-lib-bundler src/index.js",
+    "prepublish": "in-publish && npm run build || not-in-publish",
+    "lint": "eslint src polyfill",
+    "test": "ava --verbose 'src/**/*.test.js'",
+    "coverage": "nyc --reporter lcov --reporter html ava 'src/**/*.test.js'"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/frostney/ministorage.git"
+  },
+  "files": [
+    "dist",
+    "src",
+    "polyfill"
+  ],
+  "keywords": [
+    "ministorage",
+    "storage",
+    "localstorage",
+    "sessionstorage",
+    "polyfill"
+  ],
+  "ava": {
+    "babel": "inherit",
+    "require": [
+      "babel-register"
+    ]
+  },
+  "rollupBabelLibBundler": {
+    "babel": {
+      "presets": [
+        "es2015-loose-rollup"
+      ]
+    }
+  },
+  "author": "Johannes Stein",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/frostney/ministorage/issues"
+  },
+  "homepage": "https://github.com/frostney/ministorage#readme",
+  "devDependencies": {
+    "ava": "^0.14.0",
+    "babel-preset-es2015-loose": "^7.0.0",
+    "babel-preset-es2015-loose-rollup": "^7.0.0",
+    "babel-register": "^6.7.2",
+    "codecov": "^1.0.1",
+    "eslint": "^2.8.0",
+    "eslint-config-airbnb-base": "^2.0.0",
+    "eslint-plugin-import": "^1.6.0",
+    "in-publish": "^2.0.0",
+    "nyc": "^6.4.0",
+    "rimraf": "^2.5.2",
+    "rollup-babel-lib-bundler": "^3.0.1"
+  },
+  "dependencies": {}
+}

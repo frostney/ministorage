@@ -1,0 +1,2 @@
+require('./localstorage');
+require('./sessionstorage');
